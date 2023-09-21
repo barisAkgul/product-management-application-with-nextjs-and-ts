@@ -1,0 +1,47 @@
+@import "../../styles/responsive.scss";
+
+.navigation-menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+
+  .navigation-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-l);
+    color: var(--gray);
+    padding: var(--space-l);
+    border-radius: var(--border-radius-m);
+    transition: color 200ms, background-color 200ms;
+
+    @include lg {
+      padding: var(--space-m);
+    }
+
+    &.active,
+    &:hover {
+      // color: var(--white);
+      background-color: var(--green-opaque);
+    }
+
+    .icon-wrapper {
+      display: inline-flex;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        @include lg {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    .title {
+      @include lg {
+        display: none;
+      }
+    }
+  }
+}
