@@ -1,0 +1,57 @@
+@import "../../styles/responsive.scss";
+
+.dataTable {
+  width: 80vw;
+  margin: auto;
+  .dataGrid {
+    background-color: var(--table-bg);
+    padding: 20px;
+    color: var(--textColor);
+    .MuiDataGrid-toolbarContainer {
+      flex-direction: row-reverse;
+    }
+
+    .css-axafay-MuiDataGrid-virtualScroller {
+      min-height: 300px;
+    }
+
+    .css-i4bv87-MuiSvgIcon-root,
+    .css-ptiqhd-MuiSvgIcon-root,
+    .css-v4u5dn-MuiInputBase-root-MuiInput-root,
+    .css-levciy-MuiTablePagination-displayedRows {
+      color: var(--textColor);
+    }
+
+    .css-3be3ve-MuiFormControl-root-MuiTextField-root-MuiDataGrid-toolbarQuickFilter {
+      width: 250px;
+    }
+
+    .css-1w53k9d-MuiDataGrid-overlay {
+      background-color: inherit;
+    }
+
+    @include lg {
+      .css-3be3ve-MuiFormControl-root-MuiTextField-root-MuiDataGrid-toolbarQuickFilter {
+        width: 120px;
+      }
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .action {
+      display: flex;
+      gap: 15px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
