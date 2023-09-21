@@ -1,0 +1,147 @@
+/* :root {
+  --bg: white;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
+} */
+
+@import "./responsive.scss";
+
+:root {
+  --bg: white;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
+
+  --white: #e2ebf8;
+  --gray: #7c859e;
+  --dark-blue: #182b42;
+  --very-dark-blue: #111526;
+  --green: #56b890;
+  --red: #f25f5c;
+  --green-light: #a8dadc50;
+  --red-light: #ffb4b250;
+
+  --gray-opaque: #7c859e20;
+  --dark-blue-opaque: #182b4220;
+  --very-dark-blue-opaque: #11152620;
+  --green-opaque: #56b89020;
+
+  --border-color: #1d2e3f;
+
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+
+  --space-s: 4px;
+  --space-m: 8px;
+  --space-l: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+
+  --font-xs: 12px;
+  --font-s: 14px;
+  --font-m: 16px;
+  --font-l: 18px;
+  --font-xl: 24px;
+  --font-xxl: 32px;
+  --font-xxxl: 48px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dark {
+  --bg: #0f172a;
+  --textColor: #ddd;
+  --softBg: #1f273a;
+  --softTextColor: #a6a6a6;
+  --table-bg: #2a3042;
+}
+
+.light {
+  --bg: white;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
+  --table-bg: white;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "sidebar topbar"
+    "sidebar main";
+  grid-template-columns: 15vw 1fr;
+  grid-template-rows: 72px 1fr;
+
+  background-color: var(--bg);
+  color: var(--textColor);
+
+  // @include xl {
+  //   grid-template-columns: 17vw 1fr;
+  // }
+
+  @include lg {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+// .wrapper {
+//   max-width: 1536px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-left: 80px;
+//   padding-right: 80px;
+// }
+
+// @media screen and (max-width: 1536px) {
+//   .wrapper {
+//     max-width: 1366px;
+//   }
+// }
+// @media screen and (max-width: 1280px) {
+//   .wrapper {
+//     max-width: 1024px;
+//   }
+// }
+// @media screen and (max-width: 1024px) {
+//   .wrapper {
+//     max-width: 768px;
+//     padding-left: 40px;
+//     padding-right: 40px;
+//   }
+// }
+// @media screen and (max-width: 768px) {
+//   .wrapper {
+//     max-width: 640px;
+//   }
+// }
+// @media screen and (max-width: 640px) {
+//   .wrapper {
+//     max-width: 475px;
+//   }
+// }
+
+// .ql-container {
+//   font-size: 28px !important;
+// }
+
+// .quill > .ql-container > .ql-editor.ql-blank::before {
+//   color: #b3b3b1;
+// }
