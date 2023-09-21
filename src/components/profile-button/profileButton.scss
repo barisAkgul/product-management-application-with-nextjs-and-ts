@@ -1,0 +1,36 @@
+@import "../../styles/responsive.scss";
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  font-size: var(--font-m);
+  border: none;
+  background-color: inherit;
+
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 99px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: var(--font-s);
+
+    @include lg {
+      display: none;
+    }
+
+    .text {
+      font-weight: 700;
+      color: var(--textColor);
+    }
+
+    .subtitle {
+      color: var(--gray);
+    }
+  }
+}
