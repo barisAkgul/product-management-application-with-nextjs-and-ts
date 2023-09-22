@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Product Management App 🛒
 
-## Getting Started
 
-First, run the development server:
+#Overview 🚀
+The Product Management App is a modern web application that allows users to manage products. This application includes the following features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Dark Mode Support: The app offers the flexibility to switch between dark and light modes according to user preferences, ensuring the best user experience at all times.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+CRUD Operations: You can perform CRUD operations, including adding, deleting, updating, and viewing products, making it easy to manage your data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sort by Categories: It provides an easy-to-use interface to sort products by categories, so you can quickly find the product you're looking for.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Product Search: You can search for products by their names or features, enabling you to find your desired products quickly.
 
-## Learn More
+Export Product Data: Export product data to create reports or use it for other purposes.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#Technologies Used 🛠️
+This application was developed using the following technologies and libraries:
 
-## Deploy on Vercel
+React: A JavaScript library used for building user interfaces.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js: A React framework for building server-rendered applications.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+TypeScript: A statically typed superset of JavaScript that enhances code quality.
+
+MongoDB: A NoSQL database used for storing and managing product data.
+
+Sass: A CSS extension language that simplifies and enhances the styling of web applications.
+
+#How to Use 📖
+Using the app is straightforward:
+
+Start the application.
+Go to the homepage to view the product list.
+Click the "Add Product" button to add a new product.
+Click on a product to edit or delete it.
+Use the search and sorting options in the top right corner to filter and navigate through product listings.
+Export product data using the "Export" option.
