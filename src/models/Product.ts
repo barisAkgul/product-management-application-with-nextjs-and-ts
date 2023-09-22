@@ -8,15 +8,16 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
+
+    img: {
+      type: String,
+      required: true,
+    },
     color: {
       type: String,
       required: true,
     },
     price: {
-      type: String,
-      required: true,
-    },
-    img: {
       type: String,
       required: true,
     },
@@ -26,11 +27,12 @@ const productSchema = new Schema(
     },
     inStock: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }
 );
 
 //If the Post collection does not exist create a new one.
-export default mongoose.models.Post || mongoose.model("Post", productSchema);
+export default mongoose.models.Product ||
+  mongoose.model("Product", productSchema);
