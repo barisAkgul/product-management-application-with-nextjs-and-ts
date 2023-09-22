@@ -5,11 +5,11 @@ function ProfileButton() {
   return (
     <button className="profile-button">
       <img
-        src="https://avatars.githubusercontent.com/u/60665510?v=4"
-        alt="Mehmet Pekcan"
+        src="https://avatars.githubusercontent.com/u/73407115?v=4"
+        alt="Barış Akgül"
       />
       <span className="content">
-        <p className="text">Mehmet Pekcan</p>
+        <p className="text">Barış Akgül</p>
         <p className="subtitle">Admin</p>
       </span>
     </button>
