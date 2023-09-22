@@ -1,0 +1,125 @@
+@import "../../styles/responsive.scss";
+
+.modalContainer {
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: 1s ease-in-out;
+}
+
+form {
+  max-width: 40rem;
+  width: 90%;
+}
+.modalBox {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @include md {
+    flex-direction: column-reverse;
+  }
+}
+.modalHeader {
+  background-color: var(--bg);
+  height: 5rem;
+  display: grid;
+  place-items: center;
+}
+
+.modalFooter {
+  background-color: inherit;
+  height: 5rem;
+  display: grid;
+  place-items: center;
+
+  button {
+    height: 3rem;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--green);
+    color: var(--white);
+    cursor: pointer;
+
+    width: 100%;
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: 30px;
+  border: none;
+  background: inherit;
+  font-size: 24px;
+  top: 10px;
+  cursor: pointer;
+  color: var(--textColor);
+}
+.modalFooter {
+  margin-top: 15px;
+}
+.modalHeader > h2 {
+  font-size: 1.2rem;
+}
+.modalInner {
+  padding: 2rem;
+  background-color: var(--table-bg);
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 100%;
+}
+label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.input-box > input {
+  background-color: transparent;
+  font: inherit;
+  border: none;
+  font-size: 0.9rem;
+  background-color: #ecedf6;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.input-box > select {
+  background-color: transparent;
+  font: inherit;
+  border: none;
+  font-size: 0.9rem;
+  background-color: #ecedf6;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+#inStock {
+  height: 20px;
+  width: 20px;
+  margin-right: auto;
+}
+
+.input-box > input:focus {
+  outline: none;
+}
