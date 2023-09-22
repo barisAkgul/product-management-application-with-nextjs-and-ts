@@ -1,0 +1,7 @@
+.main {
+  grid-area: main;
+}
+
+.content {
+  display: flex;
+}
