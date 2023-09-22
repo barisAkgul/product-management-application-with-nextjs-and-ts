@@ -65,7 +65,7 @@ const AddProductForm: React.FC<AddProductFormProps> = ({
         <form onSubmit={handleSubmit}>
           <div className="modalBox">
             <div className="modalHeader">
-              <h2>New Employee Details</h2>
+              <h2>New Product</h2>
               <button
                 onClick={() => setShowModal(null)}
                 className="close-button"
@@ -93,7 +93,11 @@ const AddProductForm: React.FC<AddProductFormProps> = ({
                     type="text"
                     id="price"
                     name="price"
-                    value={product.price}
+                    value={
+                      product.price.startsWith("$")
+                        ? product.price
+                        : "$" + product.price
+                    }
                     onChange={handleInputChange}
                     required
                   />
@@ -101,7 +105,7 @@ const AddProductForm: React.FC<AddProductFormProps> = ({
               </div>
 
               <div className="input-box">
-                <label htmlFor="img">Image</label>
+                <label htmlFor="img">Image Url</label>
                 <input
                   type="text"
                   id="img"

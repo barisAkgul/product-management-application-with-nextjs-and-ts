@@ -46,9 +46,6 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
     setEditedData(updatedData);
   };
 
-  // for uncontrolled input error
-  if (!editedData) return <div>Loading...</div>;
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -79,7 +76,7 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
       <form onSubmit={handleSubmit}>
         <div className="modalBox">
           <div className="modalHeader">
-            <h2>New Employee Details</h2>
+            <h2>Product Update</h2>
             <button
               onClick={() => setShowModal(false)}
               className="close-button"
@@ -104,14 +101,20 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
                 <input
                   type="text"
                   required
-                  onChange={(e) => handleInputChange("price", e.target.value)}
+                  onChange={(e) => {
+                    const newValue = e.target.value;
+                    const formattedValue = newValue.startsWith("$")
+                      ? newValue
+                      : "$" + newValue;
+                    handleInputChange("price", formattedValue);
+                  }}
                   value={editedData?.price || ""}
                 />
               </div>
             </div>
 
             <div className="input-box">
-              <label htmlFor="">image</label>
+              <label htmlFor="">Image Url</label>
               <input
                 type="text"
                 // required
