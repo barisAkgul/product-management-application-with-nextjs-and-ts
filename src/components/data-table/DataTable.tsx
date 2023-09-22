@@ -1,33 +1,33 @@
 "use client";
+
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import Link from "next/link";
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
+import UpdateProductForm from "../product-action-form/UpdateProductForm";
 
-type Props = {
+interface DataTableProps {
+  rows: any[];
   columns: GridColDef[];
-  rows: object[];
   slug: string;
-};
+  onSuccessToast: (message: string) => void;
+  onErrorToast: (message: string) => void;
+  mutate: () => void;
+}
 
-const DataTable = (props: Props) => {
-  // TEST THE API
+const DataTable: React.FC<DataTableProps> = (props) => {
+  const [open, setOpen] = useState(false);
 
-  // const queryClient = useQueryClient();
-  // // const mutation = useMutation({
-  // //   mutationFn: (id: number) => {
-  // //     return fetch(`http://localhost:8800/api/${props.slug}/${id}`, {
-  // //       method: "delete",
-  // //     });
-  // //   },
-  // //   onSuccess: ()=>{
-  // //     queryClient.invalidateQueries([`all${props.slug}`]);
-  // //   }
-  // // });
-
-  const handleDelete = (id: number) => {
-    //delete the item
-    // mutation.mutate(id)
+  const handleDelete = async (id: string) => {
+    console.log("i am here ", id);
+    try {
+      await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
+      props.mutate();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const actionColumn: GridColDef = {
@@ -37,10 +37,17 @@ const DataTable = (props: Props) => {
     renderCell: (params) => {
       return (
         <div className="action">
-          <Link href={`/${props.slug}/${params.row.id}`}>
+          <Link
+            href={{
+              pathname: props.slug,
+              query: { id: params.row._id },
+            }}
+            onClick={() => setOpen(true)}
+          >
             <img src="/view.svg" alt="" />
           </Link>
-          <div className="delete" onClick={() => handleDelete(params.row.id)}>
+
+          <div className="delete" onClick={() => handleDelete(params.row._id)}>
             <img src="/delete.svg" alt="" />
           </div>
         </div>
@@ -68,13 +75,21 @@ const DataTable = (props: Props) => {
             quickFilterProps: { debounceMs: 500 },
           },
         }}
-        pageSizeOptions={[5]}
+        pageSizeOptions={[4]}
         checkboxSelection
         disableRowSelectionOnClick
         disableColumnFilter
         disableDensitySelector
         disableColumnSelector
       />
+      {open && (
+        <UpdateProductForm
+          setShowModal={setOpen}
+          onSuccessToast={props.onSuccessToast}
+          onErrorToast={props.onErrorToast}
+          mutate={props.mutate}
+        />
+      )}
     </div>
   );
 };
