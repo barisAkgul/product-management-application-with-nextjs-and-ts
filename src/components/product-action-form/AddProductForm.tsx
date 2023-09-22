@@ -54,8 +54,6 @@ const AddProductForm: React.FC<AddProductFormProps> = ({
       } else {
         onErrorToast("An error occurred while saving the product");
       }
-
-      console.log(res);
     } catch (err) {
       console.log(err);
     }

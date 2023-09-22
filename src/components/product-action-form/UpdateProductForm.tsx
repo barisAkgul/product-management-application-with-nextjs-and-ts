@@ -39,15 +39,12 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
     if (data) {
       setEditedData(data);
     }
-    console.log(data);
   }, [data]);
 
   const handleInputChange = (field: string, value: any) => {
     const updatedData = { ...editedData, [field]: value };
     setEditedData(updatedData);
   };
-
-  console.log(editedData);
 
   // for uncontrolled input error
   if (!editedData) return <div>Loading...</div>;

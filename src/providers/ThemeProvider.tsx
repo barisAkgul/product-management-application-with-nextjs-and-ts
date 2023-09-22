@@ -11,8 +11,6 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setMounted(true);
   }, []);
 
-  console.log(theme);
-
   if (mounted) {
     return <div className={theme}>{children}</div>;
   }
