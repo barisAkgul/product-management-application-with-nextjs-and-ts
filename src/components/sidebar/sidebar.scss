@@ -1,0 +1,15 @@
+@import "../../styles/responsive.scss";
+
+.sidebar-container {
+  grid-area: sidebar;
+  padding: calc(var(--space-m) * 2) var(--space-xl);
+  border-right: 1px solid var(--border-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-xl) * 3);
+
+  @include xl {
+    padding: calc(var(--space-m) * 2) var(--space-m);
+  }
+}
