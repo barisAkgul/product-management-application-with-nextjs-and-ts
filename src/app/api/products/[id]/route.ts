@@ -41,7 +41,7 @@ export const PUT = async (request: NextRequest, { params, body }: any) => {
 
     const { title, color, price, producer, inStock, img } =
       await request.json(); // Güncellenecek veriyi al
-    console.log(body);
+
     const updatedProduct = await Product.findByIdAndUpdate(
       id,
       { title, color, price, producer, inStock, img },

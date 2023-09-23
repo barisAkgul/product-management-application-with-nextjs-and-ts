@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./modalForm.scss";
 import { producers, colors } from "@/helpers/constants/inputs";
+import FileUpload from "../file-upload/FileUpload";
 
 interface AddProductFormProps {
   setShowModal: (value: React.SetStateAction<any>) => void;
@@ -59,6 +60,13 @@ const AddProductForm: React.FC<AddProductFormProps> = ({
     }
   };
 
+  const updateProductImageURL = (downloadURL: string) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      img: downloadURL,
+    }));
+  };
+
   return (
     <>
       <div className="modalContainer">
@@ -106,13 +114,16 @@ const AddProductForm: React.FC<AddProductFormProps> = ({
 
               <div className="input-box">
                 <label htmlFor="img">Image Url</label>
-                <input
-                  type="text"
-                  id="img"
-                  name="img"
-                  value={product.img}
-                  onChange={handleInputChange}
-                />
+                <div className="img-box">
+                  <input
+                    type="text"
+                    id="img"
+                    name="img"
+                    value={product.img}
+                    onChange={handleInputChange}
+                  />
+                  <FileUpload onChange={updateProductImageURL} />
+                </div>
               </div>
 
               <div className="input-container">

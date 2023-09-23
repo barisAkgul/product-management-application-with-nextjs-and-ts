@@ -19,7 +19,6 @@ const DataTable: React.FC<DataTableProps> = (props) => {
   const [open, setOpen] = useState(false);
 
   const handleDelete = async (id: string) => {
-    console.log("i am here ", id);
     try {
       await fetch(`/api/products/${id}`, {
         method: "DELETE",

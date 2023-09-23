@@ -7,6 +7,7 @@ import useSWR from "swr";
 import { useSearchParams } from "next/navigation";
 
 import { producers, colors } from "@/helpers/constants/inputs";
+import FileUpload from "../file-upload/FileUpload";
 
 interface UpdateProductFormProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -71,6 +72,17 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
     }
   };
 
+  const updateProductImageURL = (downloadURL: string) => {
+    setEditedData((prevProduct: any) => ({
+      ...prevProduct,
+      img: downloadURL,
+    }));
+  };
+
+  if (!editedData) {
+    return <div></div>;
+  }
+
   return (
     <div className="modalContainer">
       <form onSubmit={handleSubmit}>
@@ -115,12 +127,15 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 
             <div className="input-box">
               <label htmlFor="">Image Url</label>
-              <input
-                type="text"
-                // required
-                onChange={(e) => handleInputChange("img", e.target.value)}
-                value={editedData?.img || ""}
-              />
+              <div className="img-box">
+                <input
+                  type="text"
+                  // required
+                  onChange={(e) => handleInputChange("img", e.target.value)}
+                  value={editedData?.img}
+                />
+                <FileUpload onChange={updateProductImageURL} />
+              </div>
             </div>
 
             <div className="input-container">
